@@ -10,11 +10,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -29,6 +24,27 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.gallery-item-container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.gallery-item {
+  width: auto;
+  height: auto;
+  border: 1px solid black;
+  margin: 2px;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 5px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 @keyframes App-logo-spin {
