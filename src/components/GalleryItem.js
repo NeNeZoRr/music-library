@@ -43,7 +43,7 @@ function GalleryItem(props) {
 
     return (
         <div onClick={() => setView(!view)} style={{ 'display': 'inline-block' }}>
-            <p>One Gallery Item</p>
+            {/* This simple ternary shows the simple view when 'view' is false! */}
             {view ? detailView() : simpleView()}
         </div>
     )
