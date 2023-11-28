@@ -4,6 +4,7 @@ import Gallery from './components/Gallery'
 import SearchBar from './components/SearchBar'
 import AlbumView from './components/AlbumView'
 import ArtistView from './components/ArtistView'
+import { Fragment } from 'react/cjs/react.production.min'
 
 function App() {
   let [search, setSearch] = useState('')
@@ -49,8 +50,7 @@ function App() {
         </Routes>
       </Router>
     </div>
-  )
+  );
 }
 
 export default App;
-
