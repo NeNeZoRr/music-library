@@ -3,8 +3,6 @@ import { SearchContext } from '../context/SearchContext'
 
 function Searchbar() {
     const { term, handleSearch } = useContext(SearchContext)
-function SearchBar(props) {
-    let [searchTerm, setSearchTerm] = useState('')
 
     return (
         <form >
@@ -15,4 +13,3 @@ function SearchBar(props) {
 }
 
 export default Searchbar
-export default SearchBar

@@ -1,4 +1,3 @@
-
 import { useState } from 'react'
 
 function GalleryItem(props) {
@@ -44,7 +43,7 @@ function GalleryItem(props) {
 
     return (
         <div onClick={() => setView(!view)} style={{ 'display': 'inline-block' }}>
-            {/* This simple ternary shows the simple view when 'view' is false! */}
+            <p>One Gallery Item</p>
             {view ? detailView() : simpleView()}
         </div>
     )
