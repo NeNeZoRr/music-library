@@ -1,28 +1,26 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react' 
+import { Link } from 'react-router-dom'
 
-function GalleryItem(props) {
-    let [view, setView] = useState(false);
+function GalleryItem(props){
+    let [view, setView] = useState(false)
 
     const simpleStyle = {
-        'width': '100%',
+        'width': '25vw',
         'height': '20vh',
         'border': '1px solid black',
-        'margin': '1%',
-        'display': 'inline-block'
-    };
-
+        'margin': '2px'
+    }
+    
     const detailStyle = {
-        'width': '100%',
+        'width': '80vw',
         'height': '20vh',
         'border': '1px solid black',
-        'margin': '1%',
+        'margin': '2px',
         'backgroundImage': `url(${props.item.artworkUrl100})`,
         'backgroundRepeat': 'no-repeat',
-        'backgroundSize': '50%',
-        'color': 'Blue',
-        'display': 'inline-block'
-    };
+        'backgroundSize': 'cover',
+        'color': 'yellow'
+    }
 
     const simpleView = () => {
         return (
@@ -30,8 +28,8 @@ function GalleryItem(props) {
                 <h3>{props.item.trackName}</h3>
                 <h4>{props.item.collectionName}</h4>
             </div>
-        );
-    };
+        )
+    }
 
     const detailView = () => {
         return (
@@ -50,16 +48,15 @@ function GalleryItem(props) {
                 <h4>{props.item.primaryGenreName}</h4>
                 <h4>{props.item.releaseDate}</h4>
             </div>
-        );
-    };
+        )
+    }
 
     return (
-        <div className="gallery-item">
-            <div onClick={() => setView(!view)}>
-                {view ? detailView() : simpleView()}
-            </div>
+        <div onClick={() =>setView(!view)} style={{'display': 'inline-block'}}>
+            {/* This simple ternary shows the simple view when 'view' is false! */}
+            {view ? detailView() : simpleView()}
         </div>
-    );
+    )
 }
 
-export default GalleryItem;
+export default GalleryItem
