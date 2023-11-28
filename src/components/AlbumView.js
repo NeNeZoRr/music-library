@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom'
+import React, { useState } from 'react';
+
 
 function AlbumView() {
     const { id } = useParams()
