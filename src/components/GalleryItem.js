@@ -25,8 +25,8 @@ function GalleryItem(props) {
 
     const containerStyle = {
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, auto)',
-        gap: '10px', // Adjust the gap between items as needed
+        gridTemplateColumns: 'repeat(5, auto)',
+        gap: '5px', 
     };
 
     const simpleView = () => (

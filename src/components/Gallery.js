@@ -14,8 +14,8 @@ function Gallery(props) {
 
     const containerStyle = {
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '20px', 
+        gridTemplateColumns: 'repeat(5, 1fr)',
+        gap: '5px', 
     };
 
 return <div style={containerStyle}>{display}</div>;
