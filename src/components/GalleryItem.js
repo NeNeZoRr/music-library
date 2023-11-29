@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../App.css';
 
+
 function GalleryItem(props) {
     const [isDetailView, setDetailView] = useState(false);
 
     const simpleViewStyle = {
         width: 'auto',
         height: 'auto',
-        border: '1px solid black',
+        border: '2px solid white',
         margin: '2px',
     };
 
@@ -18,13 +19,7 @@ function GalleryItem(props) {
         backgroundImage: `url(${props.item.artworkUrl100})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
-        color: 'yellow',
-    };
-
-    const containerStyle = {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(5, auto)',
-        gap: '5px',
+        color: '#39FF14',
     };
 
     const toggleDetailView = () => {
@@ -62,7 +57,6 @@ GalleryItem.propTypes = {
         trackName: PropTypes.string.isRequired,
         collectionName: PropTypes.string.isRequired,
         artistId: PropTypes.number.isRequired,
-        // Add other propTypes as needed
     }).isRequired,
 };
 

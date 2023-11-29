@@ -1,8 +1,13 @@
-
 .App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
   text-align: center;
-  max-width: 1200px; 
-  margin: 0 auto; 
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: black;
 }
 
 .App-logo {
@@ -10,16 +15,10 @@
   pointer-events: none;
 }
 
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #868a92;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(150, 16, 16);
 }
 
 .App-link {
@@ -35,10 +34,27 @@
   width: auto;
   height: auto;
   border: 1px solid black;
-  margin: 2px;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(5, auto);
   gap: 5px;
+  color: white;
+  text-align: center;
+}
+
+.search-bar-container {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; 
+  padding: 10px; 
+  z-index: 100; 
+}
+
+.search-bar-container input {
+  margin-right: 10px; 
 }
 
 @media (prefers-reduced-motion: no-preference) {
