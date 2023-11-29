@@ -19,7 +19,9 @@ function GalleryItem(props) {
         backgroundImage: `url(${props.item.artworkUrl100})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
-        color: '#39FF14',
+        color: 'red',
+        border: '2px solid red',
+        
     };
 
     const toggleDetailView = () => {

@@ -1,11 +1,10 @@
-
 import React, { useEffect, useState, Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gallery from './components/Gallery';
 import SearchBar from './components/SearchBar';
 import AlbumView from './components/AlbumView';
 import ArtistView from './components/ArtistView';
-import './App.css';
+import './App.css'; 
 
 function App() {
   let [search, setSearch] = useState('');
@@ -21,22 +20,28 @@ function App() {
         const response = await fetch(API_URL + search);
         const resData = await response.json();
         if (resData.results.length > 0) {
-          setData(resData.results);
+          setMessage('');
+          return setData(resData.results);
         } else {
-          setMessage('Not Found');
+          setMessage('No items to display');
+          return setData([]);
         }
       };
       fetchData();
+    } else {
+      setMessage('Search for Music!');
+      setData([]);
     }
   }, [search]);
 
   const handleSearch = (e, term) => {
+    e.preventDefault();
     setSearch(term);
   };
 
   return (
-    <div>
-      {message}
+    <div className="App">
+      <div className="message">{message}</div>
       <Router>
         <Routes>
           <Route

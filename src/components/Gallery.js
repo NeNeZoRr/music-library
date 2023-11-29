@@ -15,12 +15,12 @@ function Gallery(props) {
     const containerStyle = {
         display: 'grid',
         gridTemplateColumns: 'repeat(5, 1fr)',
-        gap: '5px', 
-        backgroundColor:'grey', 
-        color:'black',
-      };
+        gap: '5px',
+        backgroundColor: 'black',
+        color: 'black',
+    };
 
-return <div style={containerStyle}>{display}</div>;
+    return <div style={containerStyle}>{display}</div>;
 }
 
 export default Gallery;
