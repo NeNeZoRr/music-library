@@ -16,8 +16,8 @@ function Gallery(props) {
         display: 'grid',
         gridTemplateColumns: 'repeat(5, 1fr)',
         gap: '5px',
-        backgroundColor: 'black',
-        color: 'black',
+        backgroundColor: '#595959',
+        color: 'red',
     };
 
     return <div style={containerStyle}>{display}</div>;

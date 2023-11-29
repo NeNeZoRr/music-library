@@ -20,7 +20,7 @@ function GalleryItem(props) {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
         color: 'red',
-        border: '2px solid red',
+        border: '2px solid white',
         
     };
 

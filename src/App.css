@@ -6,8 +6,9 @@
   flex-direction: column;
   text-align: center;
   margin: 0 auto;
-  background-color: black;
+  background-color: #595959;
   font-weight: bolder;
+  color: white;
 }
 
 .message {
@@ -26,7 +27,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #fb8561;
 }
 
 .gallery-item-container {
