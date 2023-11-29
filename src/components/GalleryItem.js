@@ -1,52 +1,79 @@
+<<<<<<< HEAD
 import { useState } from 'react'
+=======
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import '../App.css';
+
+>>>>>>> d75f6d710a830d84d879120ec1e889070be430f0
 
 function GalleryItem(props) {
-    let [view, setView] = useState(false)
+    const [isDetailView, setDetailView] = useState(false);
 
-    const simpleStyle = {
-        'width': '25vw',
-        'height': '20vh',
-        'border': '1px solid black',
-        'margin': '2px'
-    }
+    const simpleViewStyle = {
+        width: 'auto',
+        height: 'auto',
+        border: '2px solid white',
+        margin: '2px',
+    };
 
-    const detailStyle = {
-        'width': '80vw',
-        'height': '20vh',
-        'border': '1px solid black',
-        'margin': '2px',
-        'backgroundImage': `url(${props.item.artworkUrl100})`,
-        'backgroundRepeat': 'no-repeat',
-        'backgroundSize': 'cover',
-        'color': 'yellow'
-    }
+    const detailViewStyle = {
+        ...simpleViewStyle,
+        backgroundImage: `url(${props.item.artworkUrl100})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'contain',
+        color: 'red',
+        border: '2px solid white',
+        
+    };
 
-    const simpleView = () => {
-        return (
-            <div style={simpleStyle}>
-                <h3>{props.item.trackName}</h3>
-                <h4>{props.item.collectionName}</h4>
-            </div>
-        )
-    }
-
-    const detailView = () => {
-        return (
-            <div style={detailStyle}>
-                <h2>{props.item.trackName}</h2>
-                <h3>{props.item.collectionName}</h3>
-                <h4>{props.item.primaryGenreName}</h4>
-                <h4>{props.item.releaseDate}</h4>
-            </div>
-        )
-    }
+    const toggleDetailView = () => {
+        setDetailView(!isDetailView);
+    };
 
     return (
+<<<<<<< HEAD
         <div onClick={() => setView(!view)} style={{ 'display': 'inline-block' }}>
             <p>One Gallery Item</p>
             {view ? detailView() : simpleView()}
+=======
+        <div onClick={toggleDetailView} className="gallery-item-container">
+            <div style={isDetailView ? detailViewStyle : simpleViewStyle} className="gallery-item">
+                {isDetailView ? (
+                    <div>
+                        <h2>{props.item.trackName}</h2>
+                        <h3>
+                            <Link to={`/artist/${props.item.artistId}`}>{props.item.artistName}</Link>
+                        </h3>
+                        <h3>
+                            <Link to={`/album/${props.item.collectionId}`}>{props.item.collectionName}</Link>
+                        </h3>
+                        <h4>{props.item.primaryGenreName}</h4>
+                        <h4>{props.item.releaseDate}</h4>
+                    </div>
+                ) : (
+                    <div>
+                        <h3>{props.item.trackName}</h3>
+                        <h4>{props.item.collectionName}</h4>
+                    </div>
+                )}
+            </div>
+>>>>>>> d75f6d710a830d84d879120ec1e889070be430f0
         </div>
-    )
+    );
 }
 
+<<<<<<< HEAD
 export default GalleryItem
+=======
+GalleryItem.propTypes = {
+    item: PropTypes.shape({
+        trackName: PropTypes.string.isRequired,
+        collectionName: PropTypes.string.isRequired,
+        artistId: PropTypes.number.isRequired,
+    }).isRequired,
+};
+
+export default GalleryItem;
+>>>>>>> d75f6d710a830d84d879120ec1e889070be430f0
