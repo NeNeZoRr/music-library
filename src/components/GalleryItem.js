@@ -2,19 +2,30 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../App.css';
-
 function GalleryItem(props) {
     const [isDetailView, setDetailView] = useState(false);
+    const simpleViewStyle = {
+        width: 'auto',
+        height: 'auto',
+        border: '2px solid white',
+        margin: '2px',
+    };
+    const detailViewStyle = {
+        ...simpleViewStyle,
+        backgroundImage: `url(${props.item.artworkUrl100})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'contain',
+        color: 'red',
+        border: '2px solid white',
+
+    };
 
     const toggleDetailView = () => {
         setDetailView(!isDetailView);
     };
-
-    const itemStyle = isDetailView ? 'gallery-item-detail' : 'gallery-item-simple';
-
     return (
-        <div onClick={toggleDetailView} className="gallery-item-container" key={props.item.id}>
-            <div className={`gallery-item ${itemStyle}`}>
+        <div onClick={toggleDetailView} className="gallery-item-container">
+            <div style={isDetailView ? detailViewStyle : simpleViewStyle} className="gallery-item">
                 {isDetailView ? (
                     <div>
                         <h2>{props.item.trackName}</h2>
@@ -37,14 +48,11 @@ function GalleryItem(props) {
         </div>
     );
 }
-
 GalleryItem.propTypes = {
     item: PropTypes.shape({
-        id: PropTypes.number.isRequired,
         trackName: PropTypes.string.isRequired,
         collectionName: PropTypes.string.isRequired,
         artistId: PropTypes.number.isRequired,
     }).isRequired,
 };
-
 export default GalleryItem;

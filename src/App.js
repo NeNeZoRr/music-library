@@ -5,7 +5,6 @@ import SearchBar from './components/SearchBar';
 import AlbumView from './components/AlbumView';
 import ArtistView from './components/ArtistView';
 import './App.css'; 
-
 function App() {
   let [search, setSearch] = useState('');
   let [message, setMessage] = useState('Search for Music!');
@@ -33,12 +32,10 @@ function App() {
       setData([]);
     }
   }, [search]);
-
   const handleSearch = (e, term) => {
     e.preventDefault();
     setSearch(term);
   };
-
   return (
     <div className="App">
       <div className="message">{message}</div>
@@ -60,5 +57,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
