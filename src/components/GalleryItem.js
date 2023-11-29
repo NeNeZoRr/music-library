@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-import { useState } from 'react'
-=======
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../App.css';
 
->>>>>>> d75f6d710a830d84d879120ec1e889070be430f0
 
 function GalleryItem(props) {
     const [isDetailView, setDetailView] = useState(false);
@@ -33,11 +29,6 @@ function GalleryItem(props) {
     };
 
     return (
-<<<<<<< HEAD
-        <div onClick={() => setView(!view)} style={{ 'display': 'inline-block' }}>
-            <p>One Gallery Item</p>
-            {view ? detailView() : simpleView()}
-=======
         <div onClick={toggleDetailView} className="gallery-item-container">
             <div style={isDetailView ? detailViewStyle : simpleViewStyle} className="gallery-item">
                 {isDetailView ? (
@@ -59,14 +50,10 @@ function GalleryItem(props) {
                     </div>
                 )}
             </div>
->>>>>>> d75f6d710a830d84d879120ec1e889070be430f0
         </div>
     );
 }
 
-<<<<<<< HEAD
-export default GalleryItem
-=======
 GalleryItem.propTypes = {
     item: PropTypes.shape({
         trackName: PropTypes.string.isRequired,
@@ -76,4 +63,3 @@ GalleryItem.propTypes = {
 };
 
 export default GalleryItem;
->>>>>>> d75f6d710a830d84d879120ec1e889070be430f0
