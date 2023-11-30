@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -53,15 +54,9 @@ function GalleryItem(props) {
 
 GalleryItem.propTypes = {
     item: PropTypes.shape({
-        id: PropTypes.number,
         trackName: PropTypes.string.isRequired,
-        collectionName: PropTypes.string.isRequired,
-        artistId: PropTypes.number,
-        artistName: PropTypes.string,
-        collectionId: PropTypes.number.isRequired,
-        primaryGenreName: PropTypes.string.isRequired,
-        releaseDate: PropTypes.string.isRequired,
-        artworkUrl100: PropTypes.string,
+        collectionName: PropTypes.string,
+        artistId: PropTypes.number.isRequired,
     }).isRequired,
 };
 

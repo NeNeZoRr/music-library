@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; 
+import { useParams, Link } from 'react-router-dom';
 
 function ArtistView() {
     const [artistData, setArtistData] = useState([]);
 
-    const { id } = useParams(); 
+    const { id } = useParams();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,7 +25,9 @@ function ArtistView() {
 
     const albumDisplay = artistData.map(album => (
         <div key={album.collectionId}>
-            <p>{album.collectionName}</p>
+            <Link to={`/album/${album.collectionId}`}>
+                <p>{album.collectionName}</p>
+            </Link>
         </div>
     ));
 
