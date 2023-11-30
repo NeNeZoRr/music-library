@@ -1,18 +1,22 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const NavButtons = ({ handleHome }) => {
+const NavButtons = ({ handleBack, handleHome }) => {
     const navigate = useNavigate();
 
-    const handleBack = () => {
+    const handleBackClick = () => {
+        if (handleBack) {
+            handleBack();
+        }
         navigate(-1);
     };
 
     return (
         <div>
-            <button onClick={handleBack}>Back</button>
+            <button onClick={handleBackClick}>Back</button>
             <button onClick={handleHome}>Home</button>
         </div>
+        
     );
 };
 
