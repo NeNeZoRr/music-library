@@ -2,36 +2,38 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../App.css';
+
 function GalleryItem(props) {
     const [isDetailView, setDetailView] = useState(false);
-    const simpleViewStyle = {
-        width: 'auto',
-        height: 'auto',
-        border: '2px solid white',
-        margin: '2px',
-    };
-    const detailViewStyle = {
-        ...simpleViewStyle,
-        backgroundImage: `url(${props.item.artworkUrl100})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'contain',
-        color: 'red',
-        border: '2px solid white',
-
-    };
 
     const toggleDetailView = () => {
         setDetailView(!isDetailView);
     };
+
+    const itemStyle = isDetailView ? 'gallery-item-detail' : 'gallery-item-simple';
+
+    const itemKey = props.item.id ? props.item.id : null;
+
+    const artistLink = props.item.artistId ? (
+        <Link to={`/artist/${props.item.artistId}`}>{props.item.artistName}</Link>
+    ) : null;
+
+    const detailViewStyle = isDetailView
+        ? {
+            backgroundImage: props.item.artworkUrl100 ? `url(${props.item.artworkUrl100})` : 'none',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'contain',
+            color: 'red',
+        }
+        : null;
+
     return (
-        <div onClick={toggleDetailView} className="gallery-item-container">
-            <div style={isDetailView ? detailViewStyle : simpleViewStyle} className="gallery-item">
+        <div onClick={toggleDetailView} className="gallery-item-container" key={itemKey}>
+            <div className={`gallery-item ${itemStyle}`} style={detailViewStyle}>
                 {isDetailView ? (
                     <div>
                         <h2>{props.item.trackName}</h2>
-                        <h3>
-                            <Link to={`/artist/${props.item.artistId}`}>{props.item.artistName}</Link>
-                        </h3>
+                        <h3>{artistLink}</h3>
                         <h3>
                             <Link to={`/album/${props.item.collectionId}`}>{props.item.collectionName}</Link>
                         </h3>
@@ -48,11 +50,19 @@ function GalleryItem(props) {
         </div>
     );
 }
+
 GalleryItem.propTypes = {
     item: PropTypes.shape({
+        id: PropTypes.number,
         trackName: PropTypes.string.isRequired,
         collectionName: PropTypes.string.isRequired,
-        artistId: PropTypes.number.isRequired,
+        artistId: PropTypes.number,
+        artistName: PropTypes.string,
+        collectionId: PropTypes.number.isRequired,
+        primaryGenreName: PropTypes.string.isRequired,
+        releaseDate: PropTypes.string.isRequired,
+        artworkUrl100: PropTypes.string,
     }).isRequired,
 };
+
 export default GalleryItem;
