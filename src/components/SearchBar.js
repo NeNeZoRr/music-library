@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import '../App.css';
 
-function SearchBar(props) {
+function SearchBar({ handleSearch, clearSearchTerm }) {
     const [searchTerm, setSearchTerm] = useState('');
+
+    useEffect(() => {
+        setSearchTerm('');
+    }, [clearSearchTerm]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.handleSearch(e, searchTerm);
+        handleSearch(e, searchTerm);
     };
 
     return (
@@ -25,6 +29,7 @@ function SearchBar(props) {
 
 SearchBar.propTypes = {
     handleSearch: PropTypes.func.isRequired,
+    clearSearchTerm: PropTypes.bool.isRequired,
 };
 
 export default SearchBar;
