@@ -1,11 +1,10 @@
-// App.js
 import React, { useEffect, useState, Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gallery from './components/Gallery';
 import SearchBar from './components/SearchBar';
 import AlbumView from './Views/AlbumView';
 import ArtistView from './Views/ArtistView';
-import NavButtons from './NavButtons'; 
+import NavButtons from './Views/NavButtons';
 import './App.css';
 
 function App() {
@@ -24,14 +23,13 @@ function App() {
           setMessage('');
           setData(resData.results);
         } else {
-          setMessage('No items to display');
+          setMessage(''); // Set message to an empty string
           setData([]);
         }
       };
       fetchData();
 
-      // Set document title here
-      document.title = `${search} Music - My Music App`;
+      document.title = `${search} Music - My Music Library`;
     } else {
       setMessage('Search for Music!');
       setData([]);
@@ -47,7 +45,6 @@ function App() {
     <div className="App">
       <div className="message">{message}</div>
       <Router>
-        <NavButtons />
         <Routes>
           <Route
             path="/"
@@ -55,6 +52,7 @@ function App() {
               <Fragment>
                 <SearchBar handleSearch={handleSearch} />
                 <Gallery data={data} />
+                <NavButtons /> {/* Move NavButtons inside the Routes component */}
               </Fragment>
             }
           />
