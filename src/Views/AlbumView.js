@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function AlbumView() {
     const [ albumData, setAlbumData ] = useState([])
 
     const { id } = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,6 +28,7 @@ function AlbumView() {
 
         )
     })
+
 
     return (
         <div>

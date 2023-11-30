@@ -1,10 +1,12 @@
+// App.js
 import React, { useEffect, useState, Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Gallery from './components/Gallery';
 import SearchBar from './components/SearchBar';
-import AlbumView from './components/AlbumView';
-import ArtistView from './components/ArtistView';
-import './App.css'; 
+import AlbumView from './Views/AlbumView';
+import ArtistView from './Views/ArtistView';
+import NavButtons from './NavButtons'; 
+import './App.css';
 
 function App() {
   let [search, setSearch] = useState('');
@@ -16,31 +18,36 @@ function App() {
   useEffect(() => {
     if (search) {
       const fetchData = async () => {
-        document.title = `${search} Music`;
         const response = await fetch(API_URL + search);
         const resData = await response.json();
         if (resData.results.length > 0) {
           setMessage('');
-          return setData(resData.results);
+          setData(resData.results);
         } else {
           setMessage('No items to display');
-          return setData([]);
+          setData([]);
         }
       };
       fetchData();
+
+      // Set document title here
+      document.title = `${search} Music - My Music App`;
     } else {
       setMessage('Search for Music!');
       setData([]);
     }
   }, [search]);
+
   const handleSearch = (e, term) => {
     e.preventDefault();
     setSearch(term);
   };
+
   return (
     <div className="App">
       <div className="message">{message}</div>
       <Router>
+        <NavButtons />
         <Routes>
           <Route
             path="/"
@@ -58,4 +65,5 @@ function App() {
     </div>
   );
 }
+
 export default App;

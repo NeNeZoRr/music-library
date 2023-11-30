@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -12,9 +11,7 @@ function GalleryItem(props) {
     };
 
     const itemStyle = isDetailView ? 'gallery-item-detail' : 'gallery-item-simple';
-
     const itemKey = props.item.id ? props.item.id : null;
-
     const artistLink = props.item.artistId ? (
         <Link to={`/artist/${props.item.artistId}`}>{props.item.artistName}</Link>
     ) : null;
